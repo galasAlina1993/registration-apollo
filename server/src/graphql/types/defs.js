@@ -8,7 +8,7 @@ module.exports = gql`
     phone: String!
     address: String!
     zipCode: String!
-    avatar: String
+    file_upload: String
 }
 
 type Query {

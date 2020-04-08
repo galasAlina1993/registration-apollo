@@ -15,6 +15,7 @@ const CREATE_USER = gql`
     $phone: String!
     $address: String!
     $zipCode: String!
+    $file_upload: Upload
     
   ) {
     createUser(
@@ -23,6 +24,7 @@ const CREATE_USER = gql`
       phone: $phone
       address: $address
       zipCode: $zipCode,
+      file_upload: $file_upload
     ) {
         id
         name
@@ -30,6 +32,7 @@ const CREATE_USER = gql`
         phone
         address
         zipCode,
+        file_upload
     }
   }
 `;
@@ -76,6 +79,7 @@ export const RegistrationForm = () => {
 
                     })}
                     onSubmit={(fields, { resetForm }) => {
+                        debugger
                         createUser({ variables: { ...fields } });
                         resetForm();
                     }}
@@ -129,7 +133,7 @@ export const RegistrationForm = () => {
                             />
                             <Field
                                 className='file-upload'
-                                name='file-upload'
+                                name='file_upload'
                                 type='file'
                                 component={SimpleFileUpload}
                                 margin='normal'

@@ -7,5 +7,5 @@ module.exports = {
     phone: ({ phone }) => phone,
     address: ({ address }) => address,
     zipCode: ({ zipCode }) => zipCode,
-    avatar: ({ avatar }) => getFileLink(avatar),
+    file_upload: ({ file_upload }) => getFileLink(file_upload),
 }

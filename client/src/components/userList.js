@@ -11,7 +11,8 @@ export const GET_USERS = gql`
       email
       phone
       address,
-      zipCode
+      zipCode,
+      file_upload
     }
   }
 `;
@@ -30,7 +31,7 @@ export function UserList() {
         <Card
           key={i}
           style={{ padding: '10px', margin: '5px' }}
-        >{`${p.name}  ${p.email} ${p.phone}`}</Card>
+        >{`${p.name}  ${p.email} ${p.phone} ${p.file_upload}`}</Card>
       ))}
     </div>
   );
