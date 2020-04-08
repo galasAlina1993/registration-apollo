@@ -1,3 +1,5 @@
+const {getFileLink} = require('../../helpers/storage')
+
 module.exports = {
     id: ({ id }) => id,
     name: ({ name }) => name,
@@ -5,5 +7,5 @@ module.exports = {
     phone: ({ phone }) => phone,
     address: ({ address }) => address,
     zipCode: ({ zipCode }) => zipCode,
-    files: ({ files }) => files
+    avatar: ({ avatar }) => getFileLink(avatar),
 }

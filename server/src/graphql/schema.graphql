@@ -13,6 +13,6 @@ type Query {
 }
 
 type Mutation {
-    createUser(name: String!, email: String!, phone: String!, address: String!, zipCode: String!, files: String): User!
+    createUser(name: String!, email: String!, phone: String!, address: String!, zipCode: String!, file-upload: Upload): User!
 }
 

@@ -1,22 +1,20 @@
 require('dotenv').config()
 
 const express = require('express')
-// const apolloUploadExpress = require('apollo-upload-client')
 const { ApolloServer } = require('apollo-server-express')
-const { importSchema } = require('graphql-import')
 
 const { resolvers } = require('./graphql')
+const typeDefs = require('./graphql/types/defs')
 
-const typeDefs = importSchema('./src/graphql/schema.graphql')
 const port = process.env.SERVER_PORT || 4000
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  uploads: true,
 })
 
 const app = express()
-// app.use(apolloUploadExpress({ uploadDir: './' }))
-app.use('/', express.static('public'))
+app.use('/public', express.static(__dirname + '/storage'))
 server.applyMiddleware({ app })
 app.listen(port, () => console.log(`App listening on port ${port}!`))
