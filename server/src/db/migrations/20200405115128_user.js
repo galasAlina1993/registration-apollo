@@ -8,6 +8,7 @@ exports.up = knex =>
         tbl.string('phone').notNullable()
         tbl.string('address').notNullable()
         tbl.string('zipCode').notNullable()
+        tbl.string('avatar').nullable()
 
     });
 
