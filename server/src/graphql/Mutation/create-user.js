@@ -23,7 +23,6 @@ const createUser = async (_, args) => {
         delete args.file_upload
         args.file_upload = fileName
     }
-    debugger
     const id = uuid()
     const user = { id, ...args }
     await knex('user').insert(user)

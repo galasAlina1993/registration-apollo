@@ -48,7 +48,7 @@ const FormattedPhone = ({ inputRef, ...otherProps }) => <NumberFormat {...otherP
 
 
 export const RegistrationForm = () => {
-    const [createUser, { data }] = useMutation(CREATE_USER, {
+    const [createUser] = useMutation(CREATE_USER, {
         refetchQueries: [{ query: GET_USERS }]
     });
 
@@ -79,7 +79,6 @@ export const RegistrationForm = () => {
 
                     })}
                     onSubmit={(fields, { resetForm }) => {
-                        debugger
                         createUser({ variables: { ...fields } });
                         resetForm();
                     }}
@@ -148,10 +147,10 @@ export const RegistrationForm = () => {
                                 fullWidth
                             />
 
-                            <Button type='submit' variant='outlined' color='primary'>
+                            <Button style={{marginTop: '10px'}} type='submit' variant='outlined' color='primary'>
                                 Register
                 </Button>{' '}
-                            <Button type='reset' variant='outlined' color='secondary'>
+                            <Button style={{marginTop: '10px'}} type='reset' variant='outlined' color='secondary'>
                                 Reset
                 </Button>
                         </Form>
